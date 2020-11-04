@@ -1,6 +1,6 @@
 import React from "react"
 // hook
-import useTotalData from "../../hooks/useTotalData"
+import useSucursales from "../../hooks/useSucursales"
 // component
 import SearchResultCard from "../../components/SearchResultsCards/SearchResultCard"
 // Styles
@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 		maxWidth: "100vw",
 	},
 	page: {
+		minHeight: "calc(100vh - 64px)",
 		backgroundImage: "url('/assets/images/archive.jpg')",
 		backgroundSize: "cover",
 		backgroundAttachment: "fixed",
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ResultadosBusqueda({ match }) {
 	let { keyword } = match.params
 	keyword = decodeURI(keyword)
-	const data = useTotalData({ keyword })
+	const sucursales = useSucursales({ keyword })
 	const classes = useStyles()
 
 	return (
@@ -45,10 +46,10 @@ export default function ResultadosBusqueda({ match }) {
 					container
 					direction='row'
 					justify='center'
-					// alignItems='flex-start'
+					alignItems='flex-start'
 					spacing={2}
 				>
-					{data.map((each) => {
+					{sucursales.map((each) => {
 						const neto = each[" neto "]
 						const { id } = each
 						return (

@@ -15,6 +15,29 @@ const useStyles = makeStyles((theme) => ({
 		backgroundAttachment: "fixed",
 		padding: "2em 0",
 	},
+	goBackButton: {
+		textDecoration: "none",
+		color: "#1a1c20",
+		backgroundColor: "#FFCD01",
+		display: "inline-block",
+		minWidth: "150px",
+		height: 30,
+		lineHeight: "30px",
+		textAlign: "center",
+		border: "2px solid #1a1c20",
+		borderRadius: "3px",
+		transition: "all ease .3s",
+		position: "relative",
+		left: "50%",
+		transform: "translateX(-50%)",
+		marginBottom: "1.5em",
+		"&:hover": {
+			color: "#FFCD01",
+			backgroundColor: "#1a1c20",
+			borderColor: "#FFCD01",
+			fontWeight: "bold",
+		},
+	},
 	papper: {
 		maxWidth: 700,
 		margin: "0 auto",
@@ -40,8 +63,10 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	col11: {
-		paddingTop: "1.5em",
 		paddingLeft: "1em",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
 	},
 	col12: {
 		display: "flex",
@@ -109,13 +134,15 @@ export default function DetalleBusqueda({ match }) {
 		const facType = Array.from(factura).splice(1, 1)
 		return (
 			<div className={classes.page}>
-				<Link to={`/search/${keyword}`}>VOLVER</Link>
-				<h1>Detalle</h1>
+				<Link to={`/search/${keyword}`} className={classes.goBackButton}>
+					Volver al Listado
+				</Link>
 				<Paper elevation={24} className={classes.papper}>
 					<div className={classes.gridContainerDetalle}>
 						<div className={classes.row1}>
 							<p className={classes.col11}>
 								<span>Razon Social</span>
+								<span>{proveedor}</span>
 							</p>
 							<p className={classes.col12}>
 								<span>Factura tipo</span>

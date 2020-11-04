@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getDBResult } from "../services/getJsonData"
-export default function useTotalData({ keyword } = {}) {
+export default function useSucursales({ keyword } = {}) {
 	const [state, setState] = useState([])
 	useEffect(() => {
 		getDBResult((arr) => {

@@ -135,7 +135,7 @@ export default function SearchResultCard({
 	const renderMobileMenu = (
 		<Menu
 			anchorEl={mobileMoreAnchorEl}
-			anchorOrigin={{ vertical: "top", horizontal: "right" }}
+			// anchorOrigin={{ vertical: "top", horizontal: "right" }}
 			id={mobileMenuId}
 			keepMounted
 			transformOrigin={{ vertical: "top", horizontal: "right" }}

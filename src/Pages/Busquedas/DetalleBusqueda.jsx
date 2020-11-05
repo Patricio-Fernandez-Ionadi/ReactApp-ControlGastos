@@ -119,13 +119,13 @@ const useStyles = makeStyles((theme) => ({
 export default function DetalleBusqueda({ match }) {
 	const classes = useStyles()
 	const { keyword } = match.params
-	let totalData = useFacturas()
+	const totalData = useFacturas()
 
 	let myInfo
 	if (totalData[0]) {
 		totalData.map((each) => {
 			if (each.id === match.params.id) {
-				myInfo = each
+				return (myInfo = each)
 			}
 		})
 		const costo = myInfo[" neto "]
@@ -141,6 +141,7 @@ export default function DetalleBusqueda({ match }) {
 					<div className={classes.gridContainerDetalle}>
 						<div className={classes.row1}>
 							<p className={classes.col11}>
+								<span>{sucursal}</span>
 								<span>Razon Social</span>
 								<span>{proveedor}</span>
 							</p>

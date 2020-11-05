@@ -114,19 +114,10 @@ export default function SearchResultCard({
 		setExpanded(!expanded)
 	}
 	// FOR MENU CARDS
-	const [anchorEl, setAnchorEl] = React.useState(null)
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
-	const isMenuOpen = Boolean(anchorEl)
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-	const handleProfileMenuOpen = (event) => {
-		setAnchorEl(event.currentTarget)
-	}
 	const handleMobileMenuClose = () => {
 		setMobileMoreAnchorEl(null)
-	}
-	const handleMenuClose = () => {
-		setAnchorEl(null)
-		handleMobileMenuClose()
 	}
 	const handleMobileMenuOpen = (event) => {
 		setMobileMoreAnchorEl(event.currentTarget)
@@ -135,7 +126,7 @@ export default function SearchResultCard({
 	const renderMobileMenu = (
 		<Menu
 			anchorEl={mobileMoreAnchorEl}
-			// anchorOrigin={{ vertical: "top", horizontal: "right" }}
+			anchorOrigin={{ vertical: "top", horizontal: "right" }}
 			id={mobileMenuId}
 			keepMounted
 			transformOrigin={{ vertical: "top", horizontal: "right" }}

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
 		}),
-		background: "#DB281B",
+		background: "#db281b",
 	},
 	appBarShift: {
 		marginLeft: drawerWidth,
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	menuButton: {
 		marginRight: theme.spacing(2),
-		color: "#FFCD01",
+		color: "#ffcd01",
 		boxShadow: "0 0 15px rgba(255, 205, 1, .5) inset",
 	},
 	hide: {

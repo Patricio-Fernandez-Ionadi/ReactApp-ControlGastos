@@ -15,6 +15,7 @@ import ResultadosBusqueda from "./Pages/Busquedas/ResultadosBusqueda"
 import DetalleBusqueda from "./Pages/Busquedas/DetalleBusqueda"
 // GlobalStyles
 import { createGlobalStyle } from "styled-components"
+// import useSearchFilter from "./hooks/useSearchFilter"
 const GlobalStyle = createGlobalStyle`
   body{
     margin:0;
@@ -25,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function App() {
+	// let matches = useSearchFilter({ keyword: "9 de" })
+	// console.log(matches)
 	return (
 		<div>
 			<GlobalStyle />

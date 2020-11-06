@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: fade(theme.palette.common.white, 0.15),
 		marginLeft: 0,
 		flex: 1,
+		transition: "all .2s ease",
 		"&:hover": {
 			backgroundColor: fade(theme.palette.common.white, 0.25),
 		},

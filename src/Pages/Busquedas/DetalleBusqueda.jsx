@@ -6,6 +6,7 @@ import useFacturas from "../../hooks/useFacturas"
 // styles
 import { Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
+import Loading from "../../components/Loading/Loading"
 
 const useStyles = makeStyles((theme) => ({
 	page: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundRepeat: "no-repeat",
 		backgroundAttachment: "fixed",
 		padding: "2em 0",
+		minHeight: "calc(100vh - 64px)",
 	},
 	goBackButton: {
 		textDecoration: "none",
@@ -176,6 +178,13 @@ export default function DetalleBusqueda({ match }) {
 			</div>
 		)
 	} else {
-		return "CARGANDO..."
+		return (
+			<div className={classes.page}>
+				<Link to={`/search/${keyword}`} className={classes.goBackButton}>
+					Volver al Listado
+				</Link>
+				<Loading />
+			</div>
+		)
 	}
 }

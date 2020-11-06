@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
 		backgroundImage: "url('/assets/images/loading.png')",
 		backgroundSize: "cover",
 		backgroundRepeat: "no-repeat",
+		[theme.breakpoints.down("xs")]: {
+			left: "38%",
+		},
 	},
 	circle: {
 		strokeLinecap: "round",

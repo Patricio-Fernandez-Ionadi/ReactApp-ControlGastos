@@ -9,9 +9,8 @@ const useStyles = makeStyles({
 		backgroundColor: "#FFCD01",
 	},
 	headerTitle: {
-		margin: "0 0 15px",
-		padding: 0,
-		fontSize: "2em",
+		padding: "0 15px",
+		fontSize: "1.3em",
 	},
 })
 

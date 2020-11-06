@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 `
 function App() {
 	return (
-		<div>
+		<>
 			<GlobalStyle />
 			<Router>
 				<MainNavigation />
@@ -45,8 +45,17 @@ function App() {
 					/>
 				</Switch>
 			</Router>
-		</div>
+		</>
 	)
 }
 
 export default App
+
+////////////////////////////////////////////////////////////////////////
+///////////////////////////// BreakPoints //////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// xs 600px-
+// sm 600px+ 960px-
+// md 960px+ 1280px-
+// lg 1280px+ 1920px-
+// xl 1920px+

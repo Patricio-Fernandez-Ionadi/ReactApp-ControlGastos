@@ -1,21 +1,13 @@
 import React from "react"
+// hooks
+import useFacturas from "../../hooks/useFacturas"
 // Components
 import HeaderPages from "../../components/HeaderPages/HeaderPages"
 import HeroPages from "../../components/HeaderPages/HeroPages"
-// Styles
-import { makeStyles } from "@material-ui/core"
-
-const useStyles = makeStyles((theme) => ({
-	listContainer: {
-		width: "90%",
-		minHeight: "800px",
-		backgroundColor: "#ccc",
-		margin: "auto",
-	},
-}))
+import ListContainer from "./ListContainer"
 
 export default function Facturas() {
-	const classes = useStyles()
+	const info = useFacturas()
 	return (
 		<>
 			<HeaderPages titleofpage='Facturas' />
@@ -24,12 +16,7 @@ export default function Facturas() {
 				lowertext='En la mejor App de gestion'
 				src='/assets/images/desk.jpg'
 			/>
-
-			<div>
-				<h1>Listado de facturas</h1>
-
-				<div className={classes.listContainer}></div>
-			</div>
+			<ListContainer info={info} />
 		</>
 	)
 }

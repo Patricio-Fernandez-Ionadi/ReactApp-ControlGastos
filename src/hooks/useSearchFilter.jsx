@@ -14,38 +14,33 @@ export default function useSearchFilter({ keyword } = {}) {
 					return where
 				}
 
-				arr.map((each) => {
-					if (each.factura !== undefined) {
-						if (
-							each.factura.toLowerCase().includes(keyword.toLowerCase()) &&
-							each.proveedor !== undefined
-						) {
-							grouper(each, facturas)
-						}
-					}
-				})
+				arr
+					.filter((eachFilt) => eachFilt.factura !== undefined)
+					.map((eachMap) =>
+						eachMap.factura.toLowerCase().includes(keyword.toLowerCase()) &&
+						eachMap.proveedor !== undefined
+							? grouper(eachMap, facturas)
+							: false
+					)
 
-				arr.map((each) => {
-					if (each.Sucursal !== undefined) {
-						if (
-							each.Sucursal.toLowerCase().includes(keyword.toLowerCase()) &&
-							each.factura !== undefined
-						) {
-							grouper(each, sucursales)
-						}
-					}
-				})
+				arr
+					.filter((eachFilt) => eachFilt.Sucursal !== undefined)
+					.map((eachMap) =>
+						eachMap.Sucursal.toLowerCase().includes(keyword.toLowerCase()) &&
+						eachMap.proveedor !== undefined
+							? grouper(eachMap, sucursales)
+							: false
+					)
 
-				arr.map((each) => {
-					if (each.proveedor !== undefined) {
-						if (
-							each.proveedor.toLowerCase().includes(keyword.toLowerCase()) &&
-							each.factura !== undefined
-						) {
-							grouper(each, proveedores)
-						}
-					}
-				})
+				arr
+					.filter((eachFilt) => eachFilt.proveedor !== undefined)
+					.map((eachMap) =>
+						eachMap.proveedor.toLowerCase().includes(keyword.toLowerCase()) &&
+						eachMap.proveedor !== undefined
+							? grouper(eachMap, proveedores)
+							: false
+					)
+
 				setState([facturas, proveedores, sucursales])
 			}
 		})

@@ -166,12 +166,12 @@ export default function DetalleBusqueda({ match }) {
 						<div className={classes.row3}>
 							<p>cant</p>
 							<p>{detalle}</p>
-							{costo > 0 ? <p>{costo}</p> : <p>{computa}</p>}
+							{costo > 0 ? <p>{costo}-</p> : <p>{computa}</p>}
 						</div>
 						<div className={classes.row4}>
 							<p>Rubro {rubro}</p>
 							<p>Total</p>
-							{costo > 0 ? <p>{costo}</p> : <p>{computa}</p>}
+							{costo > 0 ? <p>$ {costo}-</p> : <p>$ {computa}-</p>}
 						</div>
 					</div>
 				</Paper>

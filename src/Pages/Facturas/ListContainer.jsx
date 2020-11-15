@@ -9,20 +9,26 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 const useStyles = makeStyles((theme) => ({
 	listContainer: {
 		margin: "auto",
+		maxHeight: "100vh",
 		display: "grid",
 		gap: "2px",
 		backgroundColor: "#1a1c20",
 		paddingTop: "30px",
+		overflow: "scroll",
+		position: "relative",
 	},
 	listHeader: {
 		width: "90%",
 		maxWidth: "1000px",
-		margin: "auto",
 		border: "2px solid #1a1c20",
 		borderRadius: "1em 1em 0 0",
 		display: "grid",
 		padding: "10px",
 		height: "4em",
+		position: "absolute",
+		top: "30px",
+		left: "50%",
+		transform: "translateX(-50%)",
 		gridTemplateColumns: "repeat(2, 1fr)",
 		backgroundColor: "#FFCD01",
 		"& p": {
@@ -53,9 +59,6 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	listItem: {
-		width: "90%",
-		maxWidth: "1000px",
-		margin: "auto",
 		display: "grid",
 		height: "3em",
 		gridTemplateColumns: "repeat(2, 1fr)",
@@ -86,9 +89,22 @@ const useStyles = makeStyles((theme) => ({
 			},
 			"&:hover": {
 				backgroundColor: "rgba(255, 205, 1)",
-				transform: "scale(1.01)",
-				fontWeight: "bold",
+				// transform: "scale(1.01)",     		// bajada de fps
+				// fontWeight: "bold",					// najada de fps
 			},
+		},
+	},
+	listItemContainer: {
+		margin: "90px auto 30px",
+		maxHeight: "80vh",
+		width: "90%",
+		maxWidth: "1000px",
+		overflow: "scroll",
+		overflowX: "hidden",
+		display: "grid",
+		gap: "2px",
+		[theme.breakpoints.up("sm")]: {
+			marginTop: "55px",
 		},
 	},
 }))
@@ -110,7 +126,9 @@ export default function ListContainer({ info }) {
 					<p>sucursal</p>
 					<p>Fecha</p>
 				</div>
-				<ListItem info={info} classes={classes} />
+				<div className={classes.listItemContainer}>
+					<ListItem info={info} classes={classes} />
+				</div>
 			</div>
 		)
 	} else {

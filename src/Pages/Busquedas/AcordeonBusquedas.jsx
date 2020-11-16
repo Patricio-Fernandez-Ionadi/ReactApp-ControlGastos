@@ -1,11 +1,15 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+// Styles
 import { makeStyles } from "@material-ui/core/styles"
 import Accordion from "@material-ui/core/Accordion"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
 import Typography from "@material-ui/core/Typography"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+// Components
 import Loading from "../../components/Loading/Loading"
+// Hooks
+import { useParams } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
 	holyContainer: {
@@ -46,39 +50,46 @@ const useStyles = makeStyles((theme) => ({
 export default function AcordeonBusquedas({ info }) {
 	const classes = useStyles()
 
+	// get the keyword for no matches cases
+	const paramsFromRoute = useParams()
+	const { keyword } = paramsFromRoute
+	// time out loading in case no matches
+	const [loadingTime, setLoadingTime] = useState(true)
+	useEffect(() => {
+		setTimeout(() => {
+			setLoadingTime(false)
+		}, 5000)
+	}, [setLoadingTime])
+
 	let matchedSucursales = []
 	let matchedFacturas = []
 	let matchedProveedores = []
 	let toMap = info.props.children.props.children
 
 	if (info.props.children.props.children[0] !== undefined) {
-		toMap.map((each) => {
-			if (
-				each.props.sucursal
-					.toLowerCase()
-					.includes(each.props.keyword.toLowerCase())
-			) {
-				matchedSucursales.push(each)
-			}
-		})
-		toMap.map((each) => {
-			if (
-				each.props.factura
-					.toLowerCase()
-					.includes(each.props.keyword.toLowerCase())
-			) {
-				matchedFacturas.push(each)
-			}
-		})
-		toMap.map((each) => {
-			if (
-				each.props.proveedor
-					.toLowerCase()
-					.includes(each.props.keyword.toLowerCase())
-			) {
-				matchedProveedores.push(each)
-			}
-		})
+		toMap.map((each) =>
+			each.props.sucursal
+				.toLowerCase()
+				.includes(each.props.keyword.toLowerCase())
+				? matchedSucursales.push(each)
+				: false
+		)
+
+		toMap.map((each) =>
+			each.props.factura
+				.toLowerCase()
+				.includes(each.props.keyword.toLowerCase())
+				? matchedFacturas.push(each)
+				: false
+		)
+
+		toMap.map((each) =>
+			each.props.proveedor
+				.toLowerCase()
+				.includes(each.props.keyword.toLowerCase())
+				? matchedProveedores.push(each)
+				: false
+		)
 	}
 
 	if (matchedFacturas[0] || matchedProveedores[0] || matchedSucursales[0]) {
@@ -146,6 +157,16 @@ export default function AcordeonBusquedas({ info }) {
 					) : null}
 				</div>
 			</div>
+		)
+	} else if (!loadingTime) {
+		return (
+			<>
+				<div className={classes.noMatchContainer}>
+					<h1 className={classes.noMatchAlert}>
+						There are no matching results for the keyword: "{keyword}"
+					</h1>
+				</div>
+			</>
 		)
 	} else {
 		return <Loading />

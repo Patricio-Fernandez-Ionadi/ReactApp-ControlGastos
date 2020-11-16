@@ -82,46 +82,62 @@ export default function SearchResultCard({
 	rubro,
 }) {
 	const classes = useStyles()
-	const [expanded, setExpanded] = React.useState(false)
-	if (rubro === 1) {
-		rubro = "Servicio tecnico de frio"
-	} else if (rubro === 2) {
-		rubro = "Repuestos de frio"
-	} else if (rubro === 3) {
-		rubro = "Compresores"
-	} else if (rubro === 4) {
-		rubro = "Servicios varios"
-	} else if (rubro === 5) {
-		rubro = "Materiales electricos"
-	} else if (rubro === 6) {
-		rubro = "Servicios sanitarios"
-	} else if (rubro === 7) {
-		rubro = "Generadores"
-	} else if (rubro === 8) {
-		rubro = "Repuestos carretas / Ferretería / Varios"
-	} else if (rubro === 9) {
-		rubro = "Matafuegos"
-	} else if (rubro === 10) {
-		rubro = "Albañilería / Pinturería"
-	} else if (rubro === 11) {
-		rubro = "Servicio Técnico Autoelevadores"
-	} else if (rubro === 12) {
-		rubro = "Repuestos Autoelevadores"
-	} else {
-		rubro = "desconocido"
+	switch (rubro) {
+		case 1:
+			rubro = "Servicio tecnico de frio"
+			break
+		case 2:
+			rubro = "Repuestos de frio"
+			break
+		case 3:
+			rubro = "Compresores"
+			break
+		case 4:
+			rubro = "Servicios varios"
+			break
+		case 5:
+			rubro = "Materiales electricos"
+			break
+		case 6:
+			rubro = "Servicios sanitarios"
+			break
+		case 7:
+			rubro = "Generadores"
+			break
+		case 8:
+			rubro = "Repuestos carretas / Ferretería / Varios"
+			break
+		case 9:
+			rubro = "Matafuegos"
+			break
+		case 10:
+			rubro = "Albañilería / Pinturería"
+			break
+		case 11:
+			rubro = "Servicio Técnico Autoelevadores"
+			break
+		case 12:
+			rubro = "Repuestos Autoelevadores"
+			break
+		default:
+			rubro = "desconocido"
 	}
+
+	// FOR MENU CARDS
+	const [expanded, setExpanded] = React.useState(false)
+	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
+	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
+
 	const handleExpandClick = () => {
 		setExpanded(!expanded)
 	}
-	// FOR MENU CARDS
-	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
-	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 	const handleMobileMenuClose = () => {
 		setMobileMoreAnchorEl(null)
 	}
 	const handleMobileMenuOpen = (event) => {
 		setMobileMoreAnchorEl(event.currentTarget)
 	}
+
 	const mobileMenuId = "primary-search-account-menu-mobile"
 	const renderMobileMenu = (
 		<Menu

@@ -30,14 +30,18 @@ function App() {
 			<Router>
 				<MainNavigation />
 				<Switch>
+					{/* Principales */}
 					<Route exact path='/' component={Home} />
-					<Route path='/facturas' component={Facturas} />
+					<Route exact path='/facturas' component={Facturas} />
 					<Route path='/proveedores' component={Proveedores} />
 					<Route path='/gastos' component={Gastos} />
 					<Route path='/promedios' component={Promedios} />
 					<Route path='/sucursales' component={Sucursales} />
 					<Route path='/rubros' component={Rubros} />
+					{/* Derivados 1 */}
 					<Route exact path='/search/:keyword' component={ResultadosBusqueda} />
+					<Route exact path='/facturas/:id' component={DetalleBusqueda} />
+					{/* Derivados 2 */}
 					<Route
 						exact
 						path='/search/:keyword/:id'

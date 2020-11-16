@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
 		minHeight: "calc(100vh - 64px)",
 	},
 	goBackButton: {
-		textDecoration: "none",
 		color: "#1a1c20",
 		backgroundColor: "#FFCD01",
 		display: "inline-block",
 		minWidth: "150px",
-		height: 30,
+		height: 40,
+		fontSize: "1em",
 		lineHeight: "30px",
 		textAlign: "center",
 		border: "2px solid #1a1c20",
@@ -118,15 +118,19 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-export default function DetalleBusqueda({ match }) {
+export default function DetalleBusqueda(props) {
 	const classes = useStyles()
-	const { keyword } = match.params
+	const { keyword } = props.match.params
 	const totalData = useFacturas()
+
+	const handleGoBackButton = () => {
+		props.history.goBack()
+	}
 
 	let myInfo
 	if (totalData[0]) {
 		totalData.map((each) => {
-			if (each.id === match.params.id) {
+			if (each.id === props.match.params.id) {
 				return (myInfo = each)
 			}
 		})
@@ -134,11 +138,12 @@ export default function DetalleBusqueda({ match }) {
 		const sucursal = myInfo.Sucursal
 		const { proveedor, dia, mes, factura, detalle, computa, rubro } = myInfo
 		const facType = Array.from(factura).splice(1, 1)
+		// -> para obtener el tipo de factura desde el string
 		return (
 			<div className={classes.page}>
-				<Link to={`/search/${keyword}`} className={classes.goBackButton}>
+				<button className={classes.goBackButton} onClick={handleGoBackButton}>
 					Volver al Listado
-				</Link>
+				</button>
 				<Paper elevation={24} className={classes.papper}>
 					<div className={classes.gridContainerDetalle}>
 						<div className={classes.row1}>

@@ -6,7 +6,11 @@ export default function ListItem({ info, classes }) {
 		<>
 			{info.map((each) => {
 				return (
-					<Link to='/' className={classes.listItem} key={each.id}>
+					<Link
+						to={`/facturas/${each.id}`}
+						className={classes.listItem}
+						key={each.id}
+					>
 						<p>{each.factura}</p>
 						<p>{each.proveedor}</p>
 						<p>{each.Sucursal}</p>

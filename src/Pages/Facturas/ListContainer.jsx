@@ -1,4 +1,7 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+// Hooks
+import { useParams } from "react-router-dom"
+
 // Components
 import ListItem from "./ListItem"
 import Loading from "../../components/Loading/Loading"
@@ -111,6 +114,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ListContainer({ info }) {
 	const classes = useStyles()
+
 	if (info !== undefined) {
 		return (
 			<div className={classes.listContainer}>

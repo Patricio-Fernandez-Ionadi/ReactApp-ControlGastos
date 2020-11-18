@@ -13,7 +13,7 @@ export default function ListItem({ info, classes }) {
 					>
 						<p>{each.factura}</p>
 						<p>{each.proveedor}</p>
-						<p>{each.Sucursal}</p>
+						<p>{each.sucursal}</p>
 						<p>
 							{each.dia}/{each.mes}/2020
 						</p>

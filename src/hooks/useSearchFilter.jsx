@@ -24,9 +24,9 @@ export default function useSearchFilter({ keyword } = {}) {
 					)
 
 				arr
-					.filter((eachFilt) => eachFilt.Sucursal !== undefined)
+					.filter((eachFilt) => eachFilt.sucursal !== undefined)
 					.map((eachMap) =>
-						eachMap.Sucursal.toLowerCase().includes(keyword.toLowerCase()) &&
+						eachMap.sucursal.toLowerCase().includes(keyword.toLowerCase()) &&
 						eachMap.proveedor !== undefined
 							? grouper(eachMap, sucursales)
 							: false

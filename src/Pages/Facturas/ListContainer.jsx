@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react"
-// Hooks
-import { useParams } from "react-router-dom"
-
+import React from "react"
 // Components
 import ListItem from "./ListItem"
 import Loading from "../../components/Loading/Loading"

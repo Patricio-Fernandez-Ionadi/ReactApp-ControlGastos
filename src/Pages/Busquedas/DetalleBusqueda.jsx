@@ -134,9 +134,18 @@ export default function DetalleBusqueda(props) {
 				return (myInfo = each)
 			}
 		})
-		const costo = myInfo[" neto "]
-		const sucursal = myInfo.Sucursal
-		const { proveedor, dia, mes, factura, detalle, computa, rubro } = myInfo
+
+		const {
+			proveedor,
+			dia,
+			mes,
+			factura,
+			detalle,
+			computa,
+			rubro,
+			neto,
+			sucursal,
+		} = myInfo
 		const facType = Array.from(factura).splice(1, 1)
 		// -> para obtener el tipo de factura desde el string
 		return (
@@ -171,12 +180,12 @@ export default function DetalleBusqueda(props) {
 						<div className={classes.row3}>
 							<p>cant</p>
 							<p>{detalle}</p>
-							{costo > 0 ? <p>{costo}-</p> : <p>{computa}</p>}
+							{neto > 0 ? <p>{neto}-</p> : <p>{computa}</p>}
 						</div>
 						<div className={classes.row4}>
 							<p>Rubro {rubro}</p>
 							<p>Total</p>
-							{costo > 0 ? <p>$ {costo}-</p> : <p>$ {computa}-</p>}
+							{neto > 0 ? <p>$ {neto}-</p> : <p>$ {computa}-</p>}
 						</div>
 					</div>
 				</Paper>

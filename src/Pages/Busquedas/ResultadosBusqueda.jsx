@@ -65,14 +65,14 @@ export default function ResultadosBusqueda({ match }) {
 				spacing={2}
 			>
 				{info.map((each) => {
-					const neto = each[" neto "]
+					const neto = each.costo_neto
 					const { id } = each
 					return (
 						<SearchResultCard
 							id={id}
 							key={id}
 							keyword={keyword}
-							sucursal={each.Sucursal}
+							sucursal={each.sucursal}
 							proveedor={each.proveedor}
 							factura={each.factura}
 							costo={neto}

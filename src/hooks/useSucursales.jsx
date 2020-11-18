@@ -7,9 +7,9 @@ export default function useSucursales({ keyword } = {}) {
 			const sucursalesFiltered = arr.filter((dato) => {
 				if (dato !== undefined && dato.dia !== undefined) {
 					if (keyword) {
-						return dato.Sucursal.toLowerCase().includes(keyword.toLowerCase())
+						return dato.sucursal.toLowerCase().includes(keyword.toLowerCase())
 					} else {
-						return dato.Sucursal
+						return dato.sucursal
 					}
 				}
 				return false
@@ -17,5 +17,6 @@ export default function useSucursales({ keyword } = {}) {
 			setState(sucursalesFiltered)
 		})
 	}, [setState, keyword])
+	console.log(state)
 	return state
 }

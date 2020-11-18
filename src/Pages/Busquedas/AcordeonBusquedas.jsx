@@ -18,13 +18,12 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: "center",
 	},
 	acordStyles: {
-		// maxWidth: "1200px",
 		backgroundColor: "rgba(255,255,255,.2)",
 		margin: "auto",
 	},
 	root: {
-		maxWidth: "1800px",
-		width: "100%",
+		maxWidth: "1280px",
+		width: "90%",
 	},
 	heading: {
 		width: "100%",
@@ -61,12 +60,16 @@ export default function AcordeonBusquedas({ info }) {
 		}, 5000)
 	}, [setLoadingTime])
 
+	console.log(info);
+
 	let matchedSucursales = []
 	let matchedFacturas = []
 	let matchedProveedores = []
 	let toMap = info.props.children.props.children
 
-	if (info.props.children.props.children[0] !== undefined) {
+	// ///////////changed
+	if (toMap[0] !== undefined) {
+	// ///////////changed
 		toMap.map((each) =>
 			each.props.sucursal
 				.toLowerCase()

@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
 		marginRight: theme.spacing(2),
 		color: "#ffcd01",
 		boxShadow: "0 0 15px rgba(255, 205, 1, .5) inset",
+		transition: "all .2s ease",
+		"&:hover": {
+			boxShadow: "0 0 15px rgba(255, 255, 255, .5) inset",
+		},
 	},
 	hide: {
 		display: "none",

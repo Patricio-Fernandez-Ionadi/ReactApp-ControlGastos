@@ -92,7 +92,6 @@ export default function AcordeonBusquedas({ info }) {
 	}
 
 	if (matchedFacturas[0] || matchedProveedores[0] || matchedSucursales[0]) {
-		setLoadingTime()
 		return (
 			<div className={classes.holyContainer}>
 				<div className={classes.root}>

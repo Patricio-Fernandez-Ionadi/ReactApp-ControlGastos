@@ -15,7 +15,7 @@ import HideOnScroll from "./HideOnScroll"
 // DRAWER
 import Drawer from "@material-ui/core/Drawer"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
@@ -74,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainNavigation(props) {
 	const classes = useStyles()
+	const location = useLocation()
 
 	const [open, setOpen] = React.useState(false)
 	const handleDrawerOpen = () => {
@@ -136,7 +137,11 @@ export default function MainNavigation(props) {
 					</IconButton>
 				</div>
 				{/* ///////////////////////// Lista de Links ///////////////////////////// */}
-				<ListOfLinks />
+				{location.pathname.includes("sucursales") ? (
+					<ListOfLinks info={true} />
+				) : (
+					<ListOfLinks info={false} />
+				)}
 			</Drawer>
 
 			<ScrollToTop {...props} />

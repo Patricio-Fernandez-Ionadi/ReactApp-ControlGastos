@@ -76,7 +76,6 @@ export default function SearchResultCard({
 	factura,
 	costo,
 	computa,
-	detalle,
 	dia,
 	mes,
 	rubro,
@@ -150,7 +149,10 @@ export default function SearchResultCard({
 			onClose={handleMobileMenuClose}
 		>
 			<MenuItem>
-				<Link to={`/search/${keyword}/${id}`} className={classes.link}>
+				<Link
+					to={`/sucursales/search/${keyword}/${id}`}
+					className={classes.link}
+				>
 					Ver Mas Detalles
 				</Link>
 			</MenuItem>

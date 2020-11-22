@@ -37,63 +37,123 @@ const useStyles = makeStyles({
 	},
 })
 
-export default function ListOfLinks() {
+export default function ListOfLinks({ info }) {
 	const classes = useStyles()
-	return (
-		<>
-			<Divider />
-			<List>
-				<ListItem button className={classes.listItem}>
-					<Link to='/' className={classes.listLink}>
-						<span>Home</span>
-						<HomeIcon />
-					</Link>
-				</ListItem>
+	if (info) {
+		return (
+			<>
+				<Divider />
+				<List>
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales' className={classes.listLink}>
+							<span>Home</span>
+							<HomeIcon />
+						</Link>
+					</ListItem>
 
-				<ListItem button className={classes.listItem}>
-					<Link to='/facturas' className={classes.listLink}>
-						<span>Facturas</span>
-						<DescriptionIcon />
-					</Link>
-				</ListItem>
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales/facturas' className={classes.listLink}>
+							<span>Facturas</span>
+							<DescriptionIcon />
+						</Link>
+					</ListItem>
 
-				<ListItem button className={classes.listItem}>
-					<Link to='/proveedores' className={classes.listLink}>
-						<span>Proveedores</span>
-						<LocalShippingIcon />
-					</Link>
-				</ListItem>
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales/proveedores' className={classes.listLink}>
+							<span>Proveedores</span>
+							<LocalShippingIcon />
+						</Link>
+					</ListItem>
 
-				<ListItem button className={classes.listItem}>
-					<Link to='/gastos' className={classes.listLink}>
-						<span>Gastos</span>
-						<MonetizationOnIcon />
-					</Link>
-				</ListItem>
-			</List>
-			<Divider />
-			<List>
-				<ListItem button className={classes.listItem}>
-					<Link to='/promedios' className={classes.listLink}>
-						<span>Promedios</span>
-						<AssessmentIcon />
-					</Link>
-				</ListItem>
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales/gastos' className={classes.listLink}>
+							<span>Gastos</span>
+							<MonetizationOnIcon />
+						</Link>
+					</ListItem>
+				</List>
+				<Divider />
+				<List>
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales/promedios' className={classes.listLink}>
+							<span>Promedios</span>
+							<AssessmentIcon />
+						</Link>
+					</ListItem>
 
-				<ListItem button className={classes.listItem}>
-					<Link to='/sucursales' className={classes.listLink}>
-						<span>Sucursales</span>
-						<StoreIcon />
-					</Link>
-				</ListItem>
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales/sucursales' className={classes.listLink}>
+							<span>Sucursales</span>
+							<StoreIcon />
+						</Link>
+					</ListItem>
 
-				<ListItem button className={classes.listItem}>
-					<Link to='/rubros' className={classes.listLink}>
-						<span>Rubros</span>
-						<CategoryIcon />
-					</Link>
-				</ListItem>
-			</List>
-		</>
-	)
+					<ListItem button className={classes.listItem}>
+						<Link to='/sucursales/rubros' className={classes.listLink}>
+							<span>Rubros</span>
+							<CategoryIcon />
+						</Link>
+					</ListItem>
+				</List>
+			</>
+		)
+	} else {
+		return (
+			<>
+				<Divider />
+				<List>
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio' className={classes.listLink}>
+							<span>Home</span>
+							<HomeIcon />
+						</Link>
+					</ListItem>
+
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio/facturas' className={classes.listLink}>
+							<span>Facturas</span>
+							<DescriptionIcon />
+						</Link>
+					</ListItem>
+
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio/proveedores' className={classes.listLink}>
+							<span>Proveedores</span>
+							<LocalShippingIcon />
+						</Link>
+					</ListItem>
+
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio/gastos' className={classes.listLink}>
+							<span>Gastos</span>
+							<MonetizationOnIcon />
+						</Link>
+					</ListItem>
+				</List>
+				<Divider />
+				<List>
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio/promedios' className={classes.listLink}>
+							<span>Promedios</span>
+							<AssessmentIcon />
+						</Link>
+					</ListItem>
+
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio/sucursales' className={classes.listLink}>
+							<span>Sucursales</span>
+							<StoreIcon />
+						</Link>
+					</ListItem>
+
+					<ListItem button className={classes.listItem}>
+						<Link to='/diarcoBarrio/rubros' className={classes.listLink}>
+							<span>Rubros</span>
+							<CategoryIcon />
+						</Link>
+					</ListItem>
+				</List>
+			</>
+		)
+	}
 }

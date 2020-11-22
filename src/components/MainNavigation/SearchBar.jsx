@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
+// Styles
 import { makeStyles, fade } from "@material-ui/core/styles"
 import SearchIcon from "@material-ui/icons/Search"
 import InputBase from "@material-ui/core/InputBase"
-import { useHistory } from "react-router-dom"
+// import MainNavigation from "./MainNavigation"
 
 const useStyles = makeStyles((theme) => ({
 	search: {
@@ -50,20 +52,21 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchBar() {
 	const classes = useStyles()
 	const history = useHistory()
-
 	const [keyword, setKeyword] = useState("")
+
 	const handleChange = (evt) => {
 		setKeyword(evt.target.value)
 	}
 
 	const handleSubmit = (evt) => {
 		evt.preventDefault()
-		history.push(`/search/${keyword}`)
-		setKeyword("")
+		history.push(`/sucursales/search/${keyword}`)
+		// setKeyword("")
 	}
 
 	return (
 		<>
+			{/* <MainNavigation /> */}
 			<form className={classes.search} onSubmit={handleSubmit}>
 				<div className={classes.searchIcon}>
 					<SearchIcon />

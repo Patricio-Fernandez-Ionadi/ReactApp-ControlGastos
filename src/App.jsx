@@ -1,50 +1,64 @@
-// Router
+import React from "react"
+// ROUTER
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-// Components
-import MainNavigation from "./components/MainNavigation/MainNavigation"
-// Pages
-import Home from "./Pages/Home/Home"
-import Facturas from "./Pages/Facturas/Facturas"
-import Proveedores from "./Pages/Proveedores/Proveedores"
-import Gastos from "./Pages/Gastos/Gastos"
-import Promedios from "./Pages/Promedios/Promedios"
-import Sucursales from "./Pages/Sucursales/Sucursales"
-import Rubros from "./Pages/Rubros/Rubros"
-// busqueda
+// COMPONENTS
 import ResultadosBusqueda from "./Pages/Busquedas/ResultadosBusqueda"
 import DetalleBusqueda from "./Pages/Busquedas/DetalleBusqueda"
-// GlobalStyles
+// STYLES
 import { createGlobalStyle } from "styled-components"
+// PAGES
+import Landing from "./Pages/Homes/Landing"
+// sucursales
+import HomeSuc from "./Pages/Homes/HomeSuc"
+import FacturasSuc from "./Pages/Facturas/FacturasSuc"
+import ProveedoresSuc from "./Pages/Proveedores/ProveedoresSuc"
+import GastosSuc from "./Pages/Gastos/GastosSuc"
+import PromediosSuc from "./Pages/Promedios/PromediosSuc"
+import SucursalesSuc from "./Pages/Sucursales/SucursalesSuc"
+import RubrosSuc from "./Pages/Rubros/RubrosSuc"
+
 const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  }
+}
 `
+
 function App() {
 	return (
 		<>
 			<GlobalStyle />
 			<Router>
-				<MainNavigation />
 				<Switch>
-					{/* Principales */}
-					<Route exact path='/' component={Home} />
-					<Route exact path='/facturas' component={Facturas} />
-					<Route path='/proveedores' component={Proveedores} />
-					<Route path='/gastos' component={Gastos} />
-					<Route path='/promedios' component={Promedios} />
-					<Route path='/sucursales' component={Sucursales} />
-					<Route path='/rubros' component={Rubros} />
+					<Route exact path='/' component={Landing} />
+					{/* SUCURSALES */}
+					<Route exact path='/sucursales' component={HomeSuc} />
+					<Route exact path='/sucursales/facturas' component={FacturasSuc} />
+					<Route
+						exact
+						path='/sucursales/proveedores'
+						component={ProveedoresSuc}
+					/>
+					<Route exact path='/sucursales/gastos' component={GastosSuc} />
+					<Route exact path='/sucursales/promedios' component={PromediosSuc} />
+					<Route
+						exact
+						path='/sucursales/sucursales'
+						component={SucursalesSuc}
+					/>
+					<Route exact path='/sucursales/rubros' component={RubrosSuc} />
 					{/* Derivados 1 */}
-					<Route exact path='/search/:keyword' component={ResultadosBusqueda} />
-					<Route exact path='/facturas/:id' component={DetalleBusqueda} />
+					<Route
+						exact
+						path='/sucursales/search/:keyword'
+						component={ResultadosBusqueda}
+					/>
 					{/* Derivados 2 */}
 					<Route
 						exact
-						path='/search/:keyword/:id'
+						path='/sucursales/search/:keyword/:id'
 						component={DetalleBusqueda}
 					/>
 				</Switch>
@@ -63,3 +77,10 @@ export default App
 // md 960px+ 1280px-
 // lg 1280px+ 1920px-
 // xl 1920px+
+
+////////////////////////////////////////////////////////////////////////
+/////////////////////////////// Colors /////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+// #ffcd01
+// #db281b

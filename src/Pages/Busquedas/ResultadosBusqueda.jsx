@@ -2,6 +2,7 @@ import React from "react"
 // hook
 import useSearchFilter from "../../hooks/useSearchFilter"
 // component
+import MainNavigation from "../../components/MainNavigation/MainNavigation"
 import SearchResultCard from "../../components/SearchResultsCards/SearchResultCard"
 import AcordeonBusquedas from "./AcordeonBusquedas"
 // Styles
@@ -89,11 +90,14 @@ export default function ResultadosBusqueda({ match }) {
 	)
 
 	return (
-		<div className={classes.page}>
-			<h1 className={classes.title}>Resultados de: "{keyword}"</h1>
-			<div className={classes.root}>
-				<AcordeonBusquedas info={CardsToRender} />
+		<>
+			<MainNavigation />
+			<div className={classes.page}>
+				<h1 className={classes.title}>Resultados de: "{keyword}"</h1>
+				<div className={classes.root}>
+					<AcordeonBusquedas info={CardsToRender} />
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }

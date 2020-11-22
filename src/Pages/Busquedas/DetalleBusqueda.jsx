@@ -7,6 +7,7 @@ import useFacturas from "../../hooks/useFacturas"
 import { Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
 import Loading from "../../components/Loading/Loading"
+import MainNavigation from "../../components/MainNavigation/MainNavigation"
 
 const useStyles = makeStyles((theme) => ({
 	page: {
@@ -149,56 +150,62 @@ export default function DetalleBusqueda(props) {
 		const facType = Array.from(factura).splice(1, 1)
 		// -> para obtener el tipo de factura desde el string
 		return (
-			<div className={classes.page}>
-				<button className={classes.goBackButton} onClick={handleGoBackButton}>
-					Volver al Listado
-				</button>
-				<Paper elevation={24} className={classes.papper}>
-					<div className={classes.gridContainerDetalle}>
-						<div className={classes.row1}>
-							<p className={classes.col11}>
-								<span>{sucursal}</span>
-								<span>Razon Social</span>
-								<span>{proveedor}</span>
-							</p>
-							<p className={classes.col12}>
-								<span>Factura tipo</span>
-								<span>{facType}</span>
-							</p>
-							<p className={classes.col13}>
-								<span>{factura}</span>
-								<span>
-									Dia: {dia} Mes: {mes}
-								</span>
-							</p>
+			<>
+				<MainNavigation />
+				<div className={classes.page}>
+					<button className={classes.goBackButton} onClick={handleGoBackButton}>
+						Volver atras
+					</button>
+					<Paper elevation={24} className={classes.papper}>
+						<div className={classes.gridContainerDetalle}>
+							<div className={classes.row1}>
+								<p className={classes.col11}>
+									<span>{sucursal}</span>
+									<span>Razon Social</span>
+									<span>{proveedor}</span>
+								</p>
+								<p className={classes.col12}>
+									<span>Factura tipo</span>
+									<span>{facType}</span>
+								</p>
+								<p className={classes.col13}>
+									<span>{factura}</span>
+									<span>
+										Dia: {dia} Mes: {mes}
+									</span>
+								</p>
+							</div>
+							<div className={classes.row2}>
+								<p>Cantidad</p>
+								<p>Detalle</p>
+								<p>Costo</p>
+							</div>
+							<div className={classes.row3}>
+								<p>cant</p>
+								<p>{detalle}</p>
+								{neto > 0 ? <p>{neto}-</p> : <p>{computa}</p>}
+							</div>
+							<div className={classes.row4}>
+								<p>Rubro {rubro}</p>
+								<p>Total</p>
+								{neto > 0 ? <p>$ {neto}-</p> : <p>$ {computa}-</p>}
+							</div>
 						</div>
-						<div className={classes.row2}>
-							<p>Cantidad</p>
-							<p>Detalle</p>
-							<p>Costo</p>
-						</div>
-						<div className={classes.row3}>
-							<p>cant</p>
-							<p>{detalle}</p>
-							{neto > 0 ? <p>{neto}-</p> : <p>{computa}</p>}
-						</div>
-						<div className={classes.row4}>
-							<p>Rubro {rubro}</p>
-							<p>Total</p>
-							{neto > 0 ? <p>$ {neto}-</p> : <p>$ {computa}-</p>}
-						</div>
-					</div>
-				</Paper>
-			</div>
+					</Paper>
+				</div>
+			</>
 		)
 	} else {
 		return (
-			<div className={classes.page}>
-				<Link to={`/search/${keyword}`} className={classes.goBackButton}>
-					Volver al Listado
-				</Link>
-				<Loading />
-			</div>
+			<>
+				<MainNavigation />
+				<div className={classes.page}>
+					<button className={classes.goBackButton} onClick={handleGoBackButton}>
+						Volver atras
+					</button>
+					<Loading />
+				</div>
+			</>
 		)
 	}
 }
